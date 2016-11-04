@@ -3,10 +3,9 @@ package tool.log.logback;
 
 import java.net.URL;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.slf4j.impl.StaticLoggerBinder;
 
+import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.util.ContextInitializer;
 import ch.qos.logback.core.joran.spi.JoranException;
@@ -25,13 +24,17 @@ public class Main {
 		 * 指定路径启动日志系统
 		 */
 		URL logpath = Main.class.getResource("logback.xml");
-	//	LoggerContext loggerContext = new LoggerContext();
-		LoggerContext loggerContext = (LoggerContext)StaticLoggerBinder.getSingleton().getLoggerFactory();
-		loggerContext.reset();
+//		LoggerContext loggerContext = 
+//		LoggerContext loggerContext = (LoggerContext)StaticLoggerBinder.getSingleton().getLoggerFactory();
+//		loggerContext.reset();
 		
-		new ContextInitializer(loggerContext).configureByResource(logpath);
-		Logger log = LoggerFactory.getLogger("c");
-		log.info("test1111111111111");
+		LoggerContext loggerContext =new LoggerContext();
+		ContextInitializer a = new ContextInitializer(loggerContext);
+		a.configureByResource(logpath);
+		
+		
+		Logger log = loggerContext.getLogger("a");
+		log.info("test");
 	}
 
 }
