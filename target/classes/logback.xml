@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="60 seconds" debug="true">
+    <property name="logDir" value="d:/logs" />
+	
+	<appender name="stdout"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!--See http://logback.qos.ch/manual/appenders.html#RollingFileAppender -->
+		<!--and http://logback.qos.ch/manual/appenders.html#TimeBasedRollingPolicy -->
+		<!--for further documentation -->
+		<File>${logDir}/stdout.log</File>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} [%c]-[%p] %m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>${logDir}/stdout.log.%d{yyyy-MM-dd}.gz
+			</fileNamePattern>
+		</rollingPolicy>
+	</appender>
+	
+	
+	<appender name="main"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!--See http://logback.qos.ch/manual/appenders.html#RollingFileAppender -->
+		<!--and http://logback.qos.ch/manual/appenders.html#TimeBasedRollingPolicy -->
+		<!--for further documentation -->
+		<File>${logDir}/mian.log</File>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} [%c]-[%p] %m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>${logDir}/stdout.log.%d{yyyy-MM-dd}.gz
+			</fileNamePattern>
+		</rollingPolicy>
+	</appender>
+
+	<logger name="a" additivity="false"
+		level="info">
+		<appender-ref ref="stdout" />
+	</logger>
+	<logger name="b" additivity="false"
+		level="info">
+		<appender-ref ref="main" />
+	</logger>
+	
+	<root level="debug">
+		<appender-ref ref="stdout" />
+	</root>
+</configuration>
