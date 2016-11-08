@@ -27,13 +27,7 @@
     		<artifactId>slf4j-api</artifactId> 
     		<version>1.6.2</version> 
 		</dependency> 
-		
-		<!--APNs-->
-        <dependency>
-            <groupId>com.notnoop.apns</groupId>
-            <artifactId>apns_ios8</artifactId>
-            <version>0.2.3</version>
-        </dependency>
+
 		<!-- json -->
         <dependency>
             <groupId>com.alibaba</groupId>
