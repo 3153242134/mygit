@@ -5,11 +5,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 
-	
+
 	public static void main(String[] args) {
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("context.xml");
-		CommonBean b = (CommonBean) ctx.getBean("bean");
-		System.out.println(b.getId());
 		
+		ApplicationContext a = new ClassPathXmlApplicationContext("context.xml");
+		//Bean b =  (Bean) a.getBean("facBean");
+		Object bean = a.getBean("complicatedBean");
 	}
+
 }

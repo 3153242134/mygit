@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- services -->
+
+    <bean id="commonBean" name="firstBean,Bean,SuperBean" class="spring.ioc.Bean">
+        <property name="id" value="1"/>
+        <!-- additional collaborators and configuration for this bean go here -->
+    </bean>
+    
+    <bean class="spring.ioc.RunOnlyOnce" />
+    
+    <bean class="spring.ioc.WithNestedClass$NestedClass" />
+    
+    <bean id="facBean" class="spring.ioc.FactoryBean" factory-method="createInstance" />
+    
+    <bean id="factory" class="spring.ioc.Factory"/>
+    
+	<bean id="facBeanByFactory" factory-bean="factory" factory-method="create" />
+	
+	<bean id="complicatedBean" class="spring.ioc.ComplicatedConstuctor" >
+		<constructor-arg value="6"/>
+		<constructor-arg value="1"/>
+		<constructor-arg value="c"/>
+
+		<constructor-arg value="str str str"/>
+		<constructor-arg ref="commonBean"/>
+		<constructor-arg ref="commonBean"/>
+
+		
+	</bean>
+    
+    <!-- more bean definitions for services go here -->
+
+</beans>

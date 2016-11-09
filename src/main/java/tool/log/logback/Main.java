@@ -3,12 +3,10 @@ package tool.log.logback;
 
 import java.net.URL;
 
-import org.slf4j.impl.StaticLoggerBinder;
 
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.util.ContextInitializer;
-import ch.qos.logback.core.joran.spi.JoranException;
 
 
 public class Main {
