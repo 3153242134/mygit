@@ -11,7 +11,6 @@ public class Main {
 		
 		ApplicationContext a = new ClassPathXmlApplicationContext("context.xml");
 		//Bean b =  (Bean) a.getBean("facBean");
-
 		Object bean = a.getBean("complicatedBean");
 		
 		WebApplicationContext context;
