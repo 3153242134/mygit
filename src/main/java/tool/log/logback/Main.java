@@ -3,6 +3,7 @@ package tool.log.logback;
 
 import java.net.URL;
 
+import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.LoggerContext;
@@ -32,6 +33,7 @@ public class Main {
 		
 		
 		Logger log = loggerContext.getLogger("a");
+		LoggerFactory.getLogger("");
 		log.info("test");
 	}
 
